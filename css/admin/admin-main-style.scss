@@ -1,0 +1,169 @@
+/*
+	Admin Main Style
+*/
+// ==========================================================================
+// My SASS CONFIG
+// ==========================================================================
+// responsive
+$phone: "max-width: 450px";
+$half-sm: "max-width: 550px";
+$sm: "max-width: 767px";
+$md: "max-width: 991px";
+$lg: "max-width: 1199px";
+$xlg: "max-width: 1299px";
+$xxlg: "max-width: 1499px";
+//mixin
+@mixin prefix($attribute, $value) {
+  -webkit-#{$attribute}: #{$value};
+  -ms-#{$attribute}: #{$value};
+  -moz-#{$attribute}: #{$value};
+  -o-#{$attribute}: #{$value};
+  #{$attribute}: #{$value};
+}
+//colors
+$theme-color: #029F5A;
+// ==========================================================================
+.meta-box-container{
+	padding: 20px 0;
+}
+.l-row{
+	&:before, &:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.half-col{
+		width: 50%;
+		float: left;
+		margin-bottom: 10px;
+		@media($md){
+			width: 100%;
+		}
+	}
+	.full-col{
+		width: 100%;
+		margin-bottom: 10px;
+		input{
+			width: 80%;
+		}
+	}
+	label{
+		min-width: 61px;
+		display: inline-block;
+	}
+	select{
+		position: relative;
+		top: -3px;
+	}
+	input{
+		padding: 5px 3px;
+	}
+}
+#ui-datepicker-div{
+	display: none;
+}
+//===========================================================================
+// Buttons
+//===========================================================================
+
+
+// ==========================================================================
+// Gallery Sortable
+// ==========================================================================
+.calendar-image-option{
+	$button-width: 70px;
+	$button-height: 35px;
+	width: $button-width;
+	height: $button-height;
+	border: 1px solid $theme-color;
+	background-color: $theme-color;
+	color: white;
+	position: relative;
+	cursor: pointer;
+	@include prefix("border-radius", "35px");
+	.round-block{
+		display: inline-block;
+		width: $button-width/2;
+		height: $button-height;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		background-color: white;
+		@include prefix("border-radius", "50%");
+		padding: 0;
+	}
+	span{
+		display: inline-block;
+		width: 50%;
+		float: left;
+		text-align: center;
+		padding-top: 8px;
+	}
+}
+.calendar-image-option.yes-please{
+	.round-block{
+		left: 0;
+	}
+}
+.gallery-cover{
+	border: 1px solid $theme-color;
+	padding: 15px;
+	display: none;
+}
+.gallery-cover.active{
+	display: block;
+}
+.gallery-sortable{
+	margin-top: 15px;
+	height: 400px;
+	overflow-y: auto;
+	padding: 20px 0;
+	&:before, &:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.gallery-image{
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		display: inline-block;
+		border: 1px solid #efefef;
+		text-align: center;
+		height: 150px;
+		width: 150px;
+		float: left;
+		margin: 0 20px 20px 0;
+		position: relative;
+		cursor: pointer;
+		&:hover, &:active, &:focus{
+			opacity: 1;
+			.close{
+				opacity: 1;
+			}
+		}
+		.close{
+			width: 30px;
+			height: 30px;
+			background-color: #029F5A;
+			position: absolute;
+			right: -15px;
+			top: -15px;
+			color: white;
+			text-align: center;
+			line-height: 27px;
+			display: inline-block;
+			@include prefix("border-radius", 50%);
+			@include prefix("transition", "ease .3s all");
+			opacity: 0;
+		}
+		@media($lg){
+			.close{
+				opacity: 1;
+			}
+		}
+	}
+}
+.hidden-fields{
+	display: none;
+}
